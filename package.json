@@ -1,0 +1,26 @@
+{
+  "name": "phi-pg-update-delete-angjs-convert",
+  "version": "1.0.0",
+  "description": "jquery to -angularjs-conversion",
+  "main": "server/app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server/app.js"
+  },
+  "author": "Luke Schlangen",
+  "license": "ISC",
+  "dependencies": {
+    "angular": "^1.6.2",
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
+    "pg": "^6.1.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PCSailor/phi-pg-update-delete.git"
+  },
+  "bugs": {
+    "url": "https://github.com/PCSailor/phi-pg-update-delete/issues"
+  },
+  "homepage": "https://github.com/PCSailor/phi-pg-update-delete#readme"
+}

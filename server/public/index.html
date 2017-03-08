@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<!-- test -->
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Books and Databases</title>
+  <script src="vendors/angular.min.js" charset="utf-8"></script>
+  <script src="scripts/client.js" charset="utf-8"></script>
+</head>
+<body ng-app="BookApp" ng-controller="BookController as bk">
+  <h1>Book Shelf</h1>
+  <form id="newBookForm">
+    <input ng-model = "bk.newBook.title" placeholder="Title">
+    <input ng-model = "bk.newBook.author" placeholder="Author">
+    <input ng-model = "bk.newBook.edition" placeholder="Edition">
+    <input ng-model = "bk.newBook.publisher" placeholder="Publisher">
+    <button ng-click = "bk.addBook()">Add a Book!</button>
+  </form>
+  <!-- {{bk.newBook}} -->
+  <table>
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Edition</th>
+        <th>Publisher</th>
+        <th>Delete</th>
+        <th>Save</th>
+      </tr>
+    </thead>
+    <!-- <tbody id="bookShelf"> -->
+    <tbody>
+      <tr ng-repeat="book in bk.BookList">
+        <td>{{book.title}}</td>
+        <td>{{book.author}}</td>
+        <td>{{book.edition}}</td>
+        <td>{{book.publisher}}</td>
+        <td><button ng-click="bk.deleteBook(book.id)">Delete</button></td>
+        <td><button>Save</button></td>
+      </tr>
+
+
+
+    </tbody>
+  </table>
+</body>
+</html>
