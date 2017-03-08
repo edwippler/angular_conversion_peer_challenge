@@ -1,22 +1,23 @@
-console.log('java sourced!');
+console.log('javascript wizardry!');
 var app = angular.module('BookApp', []);
 app.controller('BookController', ['$http', function($http){
   console.log('created');
   var self = this;
   self.BookList = [];
-  self.newBook = {}; // NOTE: user entry fields
+  self.newBook = {};
+
   getBooks();
+
   function getBooks() {
     $http ({
       method: 'GET',
       url: '/books'
     }).then(function(response){
       self.BookList = response.data;
-      console.log('response GET = ', self.BookList);
     });
   }
+
   self.addBook = function() {
-    console.log('client-post exit = ', self.newBook);
     $http ({
       method: 'POST',
       url: '/books/new',
@@ -24,11 +25,10 @@ app.controller('BookController', ['$http', function($http){
     }).then(function(response){
       getBooks();
       self.newBook = {};
-      console.log('response POST = ', response);
     });
   }
 
-self.deleteBook = function(idOfBookToDelete){ 
+self.deleteBook = function(idOfBookToDelete){
   $http({
     method: 'DELETE',
     url: '/books/delete/' + idOfBookToDelete
@@ -37,8 +37,16 @@ self.deleteBook = function(idOfBookToDelete){
   });
 }
 
+self.updateBook = function(book){
+  $http({
+    method: 'PUT',
+    url: '/books/save/' + book.id,
+    data: book
+  }).then(function(response){
+    getBooks();
+  });
+}
 
 
 
-
-}]); // NOTE: app.controller
+}]); // end of app.controller
